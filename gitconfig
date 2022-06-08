@@ -4,16 +4,14 @@
 [user]
 	name = Brian DMC Dennis
 	email = briandennis@datamachines.io
-	
-# Specific to dotfiles to use a key authorized for my personal github account
-# My dotfiles repo is private but useful for consistency across personal and work machines
-# .gitconfig.bmdmc has to be updated per machine though
-[includeIf "gitdir:~/dotfiles/.git"]
-	path = "~/.gitconfig.crossjam"
 
 [init]
 	defaultBranch = main
 
+[http]
+	postBuffer = 1048576000
+
 [core]
 	excludesfile = "~/.gitignore"
+	compression = 0
 
