@@ -51,7 +51,7 @@ if install_system == "Linux":
 installpkg("emacs", apt="emacs-nox")
 installpkg("black")
 installpkg("htop")
-installpkg("svn")
+installpkg("svn", apt="subversion")
 installpkg("pgcli")
 
 HOMEBREW_INSTALL_SCRIPT = (
