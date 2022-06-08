@@ -1,8 +1,12 @@
+import shutil
 from pathlib import Path
 
 xontrib load powerline2
 xontrib load vox
-xontrib load homebrew
+
+if shutil.which('brew'):
+   xontrib load homebrew
+
 
 source-bash ~/.bashrc
 
