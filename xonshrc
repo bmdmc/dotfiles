@@ -3,10 +3,11 @@ from pathlib import Path
 
 xontrib load powerline2
 xontrib load vox
-xontrib load homebrew
-
 
 source-bash ~/.bashrc
+
+if shutil.which('brew', path=':'.join($PATH)):
+    xontrib load homebrew
 
 $PATH.insert(0, str(Path($HOME) / ".local" / "bin"))
 
