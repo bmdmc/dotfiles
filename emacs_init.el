@@ -23,7 +23,12 @@
  use-package-always-defer t
  use-package-always-ensure t)
 
-(use-package exec-path-from-shell) ;; sync PATH from env especially on OS X
+(use-package unicode-fonts
+  :ensure t
+  :config
+  (unicode-fonts-setup))
+
+;; sync PATH from env especially on OS X
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
   :ensure t
@@ -67,7 +72,27 @@
 '("/opt/homebrew/bin", "/usr/local/bin", (expand-file-name "~/.local/bin"))))
   (setq blacken-executable (executable-find "black")))
 
+;;; Bind the path so that we don't pickup virtualenv binaries that may be set
+
+(let ((exec-path
+       '("/opt/homebrew/bin",
+	 "/usr/local/bin",
+	 (expand-file-name "~/.local/bin"))))
+  (setq blacken-executable (executable-find "black")))
+
 (setq python-shell-completion-native-enable nil)
+
+(quail-define-package
+ "Emoji" "UTF-8" "😎" t
+ "Emoji input mode for people that really, really like Emoji"
+ '(("\t" . quail-completion))
+ t t nil nil nil nil nil nil nil t)
+
+(quail-define-rules
+ (":)" ?😀)
+ (":P" ?😋)
+ (":D" ?😂)
+ (":thumb:" ?👍))
 
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-c m") 'manual-entry)
