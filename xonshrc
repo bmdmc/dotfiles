@@ -6,8 +6,7 @@ xontrib load vox
 
 source-bash ~/.bashrc
 
-if shutil.which('brew', path=':'.join($PATH)):
-    xontrib load homebrew
+xontrib load homebrew
 
 $PATH.insert(0, str(Path($HOME) / ".local" / "bin"))
 
